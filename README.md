@@ -19,13 +19,13 @@ Single-file Python stdlib HTTP server, no dependencies. ~50MB image.
 
 ## Configuration
 
-| Env var | Required | Default | Purpose |
-| --- | --- | --- | --- |
-| `GATE_PASSWORD` | yes | — | The password users enter |
-| `GATE_SECRET_KEY` | yes | — | HMAC key that signs the cookie |
+| Env var | Required | Default         | Purpose |
+| --- | --- |-----------------| --- |
+| `GATE_PASSWORD` | yes | —               | The password users enter |
+| `GATE_SECRET_KEY` | yes | —               | HMAC key that signs the cookie |
 | `GATE_COOKIE_MAX_AGE` | no | `2592000` (30d) | Cookie lifetime, seconds |
-| `GATE_COOKIE_NAME` | no | `__boxrank_gate` | Cookie name |
-| `PORT` | no | `8080` | Listen port |
+| `GATE_COOKIE_NAME` | no | `__auth_gate`   | Cookie name |
+| `PORT` | no | `8080`          | Listen port |
 
 ## Traefik wiring (example)
 
@@ -50,7 +50,7 @@ ghcr.io/<owner>/traefik-gate:<version>
 - Push to `main` → `:latest` + `:sha-<short>`
 - Tag `vX.Y.Z` → `:X.Y.Z`, `:X.Y` and `:latest`
 
-Pin a version tag in consumers (the boxrank `gate.nomad.j2` job's
+Pin a version tag in consumers (the `gate.nomad.j2` job's
 `gate_docker_image` var) rather than `:latest`, so gate rollouts are deliberate
 and reproducible.
 

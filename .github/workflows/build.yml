@@ -6,7 +6,7 @@ name: Build and publish image
 #   - push to main        -> :latest + :sha-<short>
 #   - push tag vX.Y.Z     -> :X.Y.Z, :X.Y, :latest
 #
-# Consumers (e.g. the boxrank gate nomad job) should pin a version tag, not
+# Consumers (e.g. the gate nomad job) should pin a version tag, not
 # :latest, so a gate deploy is always a deliberate, reproducible action.
 #
 # NOTE: the first published package is PRIVATE by default. Make it public once:
